@@ -19,27 +19,6 @@ app.use(helm());
 //Body Parser
 app.use(express.json({ limit: '12kb' }));
 
-//Configure trust request IPs (only for production)
-//(only IPs added in environment variables file can access the API)
-if (process.env.NODE_ENV === 'production') {
-    app.use((req, res, next) => {
-        const host = req.get('host');
-        const authIP = process.env.AUTHORIZE_IP;
-        const arrayIPs = authIP.split(',');
-        const result = arrayIPs.indexOf(host);
-
-        if (result == -1) {
-            return res.status(403).json({
-                status: 403,
-                statusText: 'Forbidden',
-                message: 'Acces denied',
-            });
-        }
-
-        next();
-    });
-}
-
 //Request rate limmit ( security vs brute force attacks)
 //Config for max of 50 request in 1 h (security)
 const limmiter = rateLimit({
@@ -73,6 +52,7 @@ app.use(compression());
 
 //just for test comunication
 app.get('/', (req, res) => {
+    console.log(req);
     res.send('Hello from the server!!! 👋');
 });
 
