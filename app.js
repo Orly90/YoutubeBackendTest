@@ -52,7 +52,6 @@ app.use(compression());
 
 //just for test comunication
 app.get('/', (req, res) => {
-    console.log(req);
     res.send('Hello from the server!!! 👋');
 });
 
