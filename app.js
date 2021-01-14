@@ -5,6 +5,7 @@ const helm = require('helmet');
 const rateLimit = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
+const compression = require('compression');
 
 const videosRouter = require('./routes/videosRouter');
 
@@ -64,6 +65,9 @@ if (process.env.NODE_ENV === 'development') {
 
 //To manage access to the API from other domains
 app.use(cors());
+
+//For compression of the ressponses.
+app.use(compression());
 
 //ROUTES
 
