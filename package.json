@@ -1,0 +1,23 @@
+{
+    "name": "google-searcher-back",
+    "version": "1.0.0",
+    "description": "API Rest Youtube Searcher",
+    "main": "app.js",
+    "scripts": {
+        "dev-start": "nodemon server.js",
+        "prod-start": "SET NODE_ENV=production&& node server.js"
+    },
+    "author": "Orlando Fundora",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-mongo-sanitize": "^2.0.2",
+        "express-rate-limit": "^5.2.3",
+        "helmet": "^4.3.1",
+        "morgan": "^1.10.0",
+        "xss-clean": "^0.1.1"
+    }
+}
