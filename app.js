@@ -28,7 +28,6 @@ if (process.env.NODE_ENV === 'production') {
         const result = arrayIPs.indexOf(host);
 
         if (result == -1) {
-            console.log('entro a send');
             return res.status(403).json({
                 status: 403,
                 statusText: 'Forbidden',
