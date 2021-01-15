@@ -8,7 +8,7 @@ const API_YOUTUBE_URL = process.env.API_YOUTUBE_URL;
 //REQ/RESP
 
 exports.getVideos = (req, res) => {
-    const { search, part = 'id,snippet', type = 'video', cant = 8 } = req.query;
+    const { search, part = 'id,snippet', type = 'video', cant = 8, order = 'rating' } = req.query;
 
     axios({
         method: 'get',
@@ -19,6 +19,7 @@ exports.getVideos = (req, res) => {
             q: search,
             type: type,
             maxResults: cant,
+            order: order,
         },
     })
         .then((response) => {
